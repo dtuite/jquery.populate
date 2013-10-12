@@ -53,6 +53,11 @@ jQuery.fn.populate = function(obj, options) {
       console.log(str);
     }
   }
+  
+  // To get an escape selector (see http://learn.jquery.com/using-jquery-core/faq/how-do-i-select-an-element-by-an-id-that-has-characters-used-in-css-notation/)
+  function jq( myid ) {
+        return "#" + myid.replace(/(:|\[|\]|\.)/g, "\\$1");
+    }
 
   function getElementName(name) {
     if (!options.phpNaming) {
@@ -77,7 +82,7 @@ jQuery.fn.populate = function(obj, options) {
     // if the form element doesn't exist, check if there is a tag with that id
     if(element == undefined) {
       // look for the element
-      element = jQuery('#' + name, form);
+      element = jQuery(jq(name), form);
       if(element) {
         element.html(value);
         return true;
