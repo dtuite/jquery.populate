@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Populate Demos</title>
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+  <script src="./jquery.populate.js"></script>
+</head>
+<body>
+  <form id="form-1">
+    <div>
+      <label for="name"/>Name</label>
+      <input id="name" name="name" type="text"/>
+    </div>
+
+    <div>
+      <label>
+        <input type="checkbox" name="alive" id="alive" /> Are you alive?
+      </label>
+    </div>
+  </form>
+
+  <button id="populate">Populate</button>
+
+  <script>
+    $(function(){
+      $('#populate').on('click', function(e) {
+        $('#form-1').populate({
+          name: 'Peter Pan',
+          alive: "on"
+        });
+      });
+    });
+  </script>
+</body>
+</html>

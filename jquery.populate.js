@@ -122,6 +122,7 @@ jQuery.fn.populate = function(obj, options) {
           // if it's an array, perform a sub loop
           // if it's a value, just do the check
 
+
           var values = value.constructor == Array ? value : [value];
           for(var j = 0; j < values.length; j++) {
             element.checked |= element.value == values[j];
