@@ -224,7 +224,9 @@ jQuery.fn.populate = function(obj, options) {
 
     // update elements
     for(var i in arr) {
-      method(this, i, arr[i]);
+      if (arr.hasOwnProperty(i)) {
+        method(this, i, arr[i]);
+      }
     }
   });
 
