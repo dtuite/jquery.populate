@@ -7,7 +7,7 @@ jQuery.fn.populate = function(obj, options) {
   // ------------------------------------------------------------------------------------------
   // JSON conversion function
 
-  // convert 
+  // convert
   function parseJSON(obj, path) {
     // prepare
     path = path || '';
@@ -53,7 +53,7 @@ jQuery.fn.populate = function(obj, options) {
       console.log(str);
     }
   }
-  
+
   // To get an escape selector (see http://learn.jquery.com/using-jquery-core/faq/how-do-i-select-an-element-by-an-id-that-has-characters-used-in-css-notation/)
   function jq( myid ) {
         return "#" + myid.replace(/(:|\[|\]|\.)/g, "\\$1");
@@ -83,7 +83,7 @@ jQuery.fn.populate = function(obj, options) {
     if(element == undefined) {
       // look for the element
       element = jQuery(jq(name), form);
-      if(element) {
+      if(element && element.length != 0) {
         element.html(value);
         return true;
       }
@@ -101,7 +101,7 @@ jQuery.fn.populate = function(obj, options) {
     }
 
     // now, place any single elements in an array.
-    // this is so that the next bit of code (a loop) can treat them the 
+    // this is so that the next bit of code (a loop) can treat them the
     // same as any array-elements passed, ie radiobutton or checkox arrays,
     // and the code will just work
     elements = element.type == undefined && element.length ? element : [element];
@@ -111,7 +111,7 @@ jQuery.fn.populate = function(obj, options) {
       // grab the element
       var element = elements[e];
       // skip undefined elements or function objects (IE only)
-      if(!element || typeof element == 'undefined' || 
+      if(!element || typeof element == 'undefined' ||
           typeof element == 'function') {
         continue;
       }
@@ -147,7 +147,7 @@ jQuery.fn.populate = function(obj, options) {
 
         case 'select':
         case 'select-one':
-          // if the select box has been replaced by this 
+          // if the select box has been replaced by this
           // selectbox plugin: https://gist.github.com/1139558
           if ($('#' + element.id + '_container').length > 0) {
             // Click the correct li to set the select box.
