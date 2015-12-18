@@ -130,7 +130,7 @@ jQuery.fn.populate = function(obj, options) {
 
           var values = value.constructor == Array ? value : [value];
           for(var j = 0; j < values.length; j++) {
-            element.checked |= element.value == values[j];
+            element.checked = values[j];
           }
 
           //element.checked = (element.value != '' && value.toString().toLowerCase() == element.value.toLowerCase());
