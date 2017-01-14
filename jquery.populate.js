@@ -119,8 +119,11 @@ jQuery.fn.populate = function(obj, options) {
       // anything else, process
       switch(element.type || element.tagName) {
         case 'radio':
+          var matches = value.toString() == element.value
           // use the single value to check the radio button
-          element.checked = (element.value != '' && value.toString() == element.value);
+          element.checked = (element.value != '' && matches);
+
+          if (matches) jQuery(element).trigger('change');
 
         case 'checkbox':
           // depends on the value.
